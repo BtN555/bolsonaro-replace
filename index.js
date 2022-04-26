@@ -48,12 +48,20 @@ const names = ['Bolsonaro','Bolsomito'],
         'Bozoasno',
         'Bostanaro',
       ],
+      const names = ['Jair Bolsonaro'],
+      elements = [...document.getElementsByTagName('*')],
+      nicknames = [
+            'Jair bolar',
+            'Bair Jolsonaro',
+            ]
+            
       getRandomPosition = array => Math.floor(Math.random() * array.length),
       getRandomNickname = array => array[getRandomPosition(array)],
       main = () => elements.forEach((element) => { // code by @pauladiniz - https://github.com/pauladiniz/loremipsum4president <- this girl is awesome <3
         let validNodes = [...element.childNodes].filter(n => n.nodeType === 3)
         validNodes.forEach((node) => {
           let text = node.nodeValue,
+              
               politicsSUX = text.replace(new RegExp(names.join('|'), 'ig'), getRandomNickname(nicknames)) // here i put my function to get random nicknames :p
           politicsSUX !== text ? node.nodeValue = politicsSUX : ''
         })
